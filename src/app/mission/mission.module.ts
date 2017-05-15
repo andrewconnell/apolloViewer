@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+import { MaterialModule } from '../material.module';
+
 import { MissionListComponent } from './mission-list/mission-list.component';
 import { MissionService } from './mission.service';
 import { MissionSummaryComponent } from './mission-summary/mission-summary.component';
@@ -25,7 +27,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
   declarations: [
     MissionListComponent,

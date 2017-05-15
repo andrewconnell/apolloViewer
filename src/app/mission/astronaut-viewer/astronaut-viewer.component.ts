@@ -7,16 +7,15 @@ import { IAstronaut } from '../../models';
 @Component({
   selector: 'app-astronaut-viewer',
   styleUrls: ['./astronaut-viewer.component.scss'],
-  template: `
-        <h4>{{ astronaut.first_name }} {{ astronaut.last_name }}</h4>
-        <div><img src="/assets/astronauts/{{ astronaut.image }}" height="200" /></div>
-        <div><em><a href="{{ astronaut.wiki_href }}" target="_blank">Wikipedia entry</a></em></div>
-      `
+  templateUrl: 'astronaut-viewer.component.html'
 })
 export class AstronautViewerComponent implements OnInit {
 
   @Input()
   astronautId: string;
+
+  @Input()
+  crewRole: string;
 
   astronaut: IAstronaut;
 
