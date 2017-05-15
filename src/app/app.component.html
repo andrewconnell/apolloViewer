@@ -1,4 +1,7 @@
-<h1>
-  {{title}}
-</h1>
-<app-mission-list></app-mission-list>
+<div>
+  <nav>
+    <a *ngFor="let target of nav"
+      [routerLink]="target.link">{{ target.name }}</a>
+  </nav>
+</div>
+<router-outlet></router-outlet>
