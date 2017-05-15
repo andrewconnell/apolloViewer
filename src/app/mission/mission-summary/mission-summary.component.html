@@ -1,0 +1,25 @@
+<div class="mission-detail">
+  <h2>
+    {{ mission.name }} ({{ mission.id }})
+  </h2>
+  <div>
+    Date: {{ mission.launch_date | date: 'MMMM dd, yyyy' }}
+    <span *ngIf="mission.end_date">
+      - {{ mission.end_date | date: 'MMMM dd, yyyy' }}
+    </span>
+  </div>
+  <blockquote *ngIf="!editing">
+    {{ mission.summary }}
+  </blockquote>
+  <div *ngIf="editing">
+    <textarea
+      [value]="mission.summary"
+      (input)="onSummaryChange(summary.value)"
+      #summary></textarea>
+  </div>
+  <button (click)="onToggleEdit()">
+    {{ editing ? 'Save' : 'Inline-Edit' }}
+  </button>
+  <button>Remove</button>
+</div>
+<div style="clear:both;">

@@ -1,14 +1,5 @@
 <h2>Apollo Missions</h2>
-<div class="mission-detail"
-  *ngFor="let mission of missions">
-  <h2>
-    {{ mission.name }} ({{ mission.id }})
-  </h2>
-  <div>
-    Date: {{ mission.launch_date | date: 'MMMM dd, yyyy' }}
-    <span *ngIf="mission.end_date">
-      - {{ mission.end_date | date: 'MMMM dd, yyyy' }}
-    </span>
-  </div>
-</div>
-<div style="clear:both;">
+<app-mission-summary
+  *ngFor="let mission of missions"
+  [mission]="mission">
+</app-mission-summary>
