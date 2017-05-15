@@ -17,6 +17,7 @@
       (input)="onSummaryChange(summary.value)"
       #summary></textarea>
   </div>
+  <button (click)="onViewMission()">View Mission</button>
   <button (click)="onToggleEdit()">
     {{ editing ? 'Save' : 'Inline-Edit' }}
   </button>

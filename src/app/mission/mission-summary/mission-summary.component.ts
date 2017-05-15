@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { IMission } from '../../models';
 
@@ -17,7 +18,7 @@ export class MissionSummaryComponent implements OnInit {
 
   public editing: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,6 +33,10 @@ export class MissionSummaryComponent implements OnInit {
 
   onRemove() {
     this.remove.emit(this.mission);
+  }
+
+  onViewMission() {
+    this.router.navigate(['/missions', this.mission.id]);
   }
 
 }
