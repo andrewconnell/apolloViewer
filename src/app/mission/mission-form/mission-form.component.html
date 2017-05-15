@@ -3,7 +3,7 @@
   style="float:right;">
   <img src="/assets/missions/{{ detail.image }}" width="250">
 </div>
-<form>
+<form #form="ngForm" novalidate>
   <div>
     Title:
     <input type="text"
@@ -28,8 +28,12 @@
     <textarea cols="50" rows="5"
       #summary="ngModel"
       name="summary"
+      required
       [ngModel]="detail.summary">
       </textarea>
+      <div *ngIf="summary.errors?.required && summary.dirty">
+        Summary required
+      </div>
   </div>
   <div>
     Reference link:
@@ -38,3 +42,7 @@
       [ngModel]="detail.wiki_href">
   </div>
 </form>
+
+<div>{{ form.value | json }}</div>
+<div>Valid: {{ form.valid | json }}</div>
+<div>Invalid: {{ form.invalid | json }}</div>
