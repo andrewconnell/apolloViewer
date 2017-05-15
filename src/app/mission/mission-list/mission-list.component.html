@@ -1,5 +1,6 @@
 <h2>Apollo Missions</h2>
 <app-mission-summary
   *ngFor="let mission of missions"
-  [mission]="mission">
+  [mission]="mission"
+  (remove)="handleRemove($event)">
 </app-mission-summary>

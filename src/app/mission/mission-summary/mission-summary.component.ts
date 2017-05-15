@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { IMission } from '../../models';
 
@@ -11,6 +11,9 @@ export class MissionSummaryComponent implements OnInit {
 
   @Input()
   mission: IMission;
+
+  @Output()
+  remove: EventEmitter<IMission> = new EventEmitter<IMission>();
 
   public editing: boolean = false;
 
@@ -25,6 +28,10 @@ export class MissionSummaryComponent implements OnInit {
 
   onSummaryChange(value: string) {
     this.mission.summary = value;
+  }
+
+  onRemove() {
+    this.remove.emit(this.mission);
   }
 
 }
