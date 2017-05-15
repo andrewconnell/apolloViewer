@@ -10,6 +10,7 @@ import { MissionViewerComponent } from './mission-viewer/mission-viewer.componen
 import { MissionFormComponent } from './mission-form/mission-form.component';
 import { AstronautService } from './astronaut.service';
 import { AstronautViewerComponent } from './astronaut-viewer/astronaut-viewer.component';
+import { NasaImageryService } from './nasa-imagery.service';
 
 const routes: Routes = [
   {
@@ -36,6 +37,6 @@ const routes: Routes = [
   exports: [
     MissionListComponent
   ],
-  providers: [MissionService, AstronautService]
+  providers: [MissionService, AstronautService, NasaImageryService]
 })
 export class MissionModule { }

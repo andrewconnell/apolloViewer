@@ -3,10 +3,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {
   IAstronaut,
   ICrew,
-  IMission
+  IMission,
+  INasaImage
 } from '../../models';
 
 import { AstronautService } from '../astronaut.service';
+import { NasaImageryService } from '../nasa-imagery.service';
 
 @Component({
   selector: 'app-mission-form',
@@ -23,6 +25,8 @@ export class MissionFormComponent implements OnInit {
 
   public newCrewMember: ICrew = {};
 
+  public missionImages: INasaImage[] = [];
+
   public crewRoles: string[] = [
     'Commander',
     'Pilot',
@@ -32,10 +36,15 @@ export class MissionFormComponent implements OnInit {
   ];
   public astronauts: IAstronaut[] = [];
 
-  constructor(private astronautService: AstronautService) { }
+  constructor(
+    private astronautService: AstronautService,
+    private nasaImageryService: NasaImageryService
+    ) { }
 
   ngOnInit() {
     this.astronauts = this.astronautService.getAstronauts();
+
+    this.loadImages(this.detail.name);
   }
 
   public onCrewChange(role: string): void {
@@ -58,6 +67,11 @@ export class MissionFormComponent implements OnInit {
       // reset crew member
       this.newCrewMember = {};
     }
+  }
+
+  public loadImages(missionName: string): void {
+    this.nasaImageryService.getMissionImages(missionName)
+      .subscribe((data: INasaImage[]) => this.missionImages = data);
   }
 
 }
