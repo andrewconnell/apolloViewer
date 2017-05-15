@@ -1,1 +1,4 @@
-{{ mission | json }}
+<app-mission-form
+  [detail]="mission"
+  (addCrew)="addCrew($event)">
+</app-mission-form>

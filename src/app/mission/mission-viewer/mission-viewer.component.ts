@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import {
+  ICrew,
   IMission
 } from '../../models';
 import { MissionService } from '../mission.service';
@@ -24,6 +25,10 @@ export class MissionViewerComponent implements OnInit {
   ngOnInit() {
     // get the mission
     this.mission = this.missionService.getMission(this.route.snapshot.params['id']);
+  }
+
+  public addCrew(newCrew: ICrew): void {
+    this.mission.crew.push(newCrew);
   }
 
 }

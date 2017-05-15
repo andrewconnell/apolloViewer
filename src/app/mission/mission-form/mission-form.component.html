@@ -1,0 +1,40 @@
+<div
+  *ngIf="detail.image"
+  style="float:right;">
+  <img src="/assets/missions/{{ detail.image }}" width="250">
+</div>
+<form>
+  <div>
+    Title:
+    <input type="text"
+      name="name"
+      #name
+      [ngModel]="detail.name">
+  </div>
+  <div>
+    Launch date:
+    <input type="text"
+      name="launch_date"
+      [ngModel]="detail.launch_date">
+  </div>
+  <div>
+    Return date:
+    <input type="text"
+      name="end_date"
+      [ngModel]="detail.end_date">
+  </div>
+  <div>
+    Summary:
+    <textarea cols="50" rows="5"
+      #summary="ngModel"
+      name="summary"
+      [ngModel]="detail.summary">
+      </textarea>
+  </div>
+  <div>
+    Reference link:
+    <input type="text"
+      name="wiki_href"
+      [ngModel]="detail.wiki_href">
+  </div>
+</form>
