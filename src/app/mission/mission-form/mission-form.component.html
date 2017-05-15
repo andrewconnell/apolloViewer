@@ -41,6 +41,35 @@
       name="wiki_href"
       [ngModel]="detail.wiki_href">
   </div>
+  <div>
+    <div *ngIf="detail.crew && detail.crew.length > 0">
+      Crew:
+      <div class="container">
+        <div class="crew" *ngFor="let crew of detail.crew">
+          <h3>{{ crew.role }}</h3>
+          <app-astronaut-viewer [astronautId]="crew.astronaut_id"></app-astronaut-viewer>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    Add Crew:
+    <select
+      (change)="onCrewChange($event.target.value)">
+      <option value="">-- select crew role --</option>
+      <option
+        *ngFor="let role of crewRoles"
+        [value]="role">{{ role }}</option>
+    </select>
+    <select
+      (change)="onAstronautChange($event.target.value)">
+      <option value="">-- select astronaut --</option>
+      <option
+        *ngFor="let astronaut of astronauts"
+        [value]="astronaut.id">{{ astronaut.last_name }}, {{ astronaut.first_name }}</option>
+    </select>
+    <button (click)="onAddAstronaut()">add</button>
+  </div>
 </form>
 
 <div>{{ form.value | json }}</div>

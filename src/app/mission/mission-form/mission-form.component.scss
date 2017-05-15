@@ -1,0 +1,10 @@
+.container {
+  width: 100%;
+}
+
+.crew {
+  display: inline-block;
+  *display: inline;
+  vertical-align: top;
+  width: 20%;
+}

@@ -8,6 +8,8 @@ import { MissionService } from './mission.service';
 import { MissionSummaryComponent } from './mission-summary/mission-summary.component';
 import { MissionViewerComponent } from './mission-viewer/mission-viewer.component';
 import { MissionFormComponent } from './mission-form/mission-form.component';
+import { AstronautService } from './astronaut.service';
+import { AstronautViewerComponent } from './astronaut-viewer/astronaut-viewer.component';
 
 const routes: Routes = [
   {
@@ -28,11 +30,12 @@ const routes: Routes = [
     MissionListComponent,
     MissionSummaryComponent,
     MissionViewerComponent,
-    MissionFormComponent
+    MissionFormComponent,
+    AstronautViewerComponent
   ],
   exports: [
     MissionListComponent
   ],
-  providers: [MissionService]
+  providers: [MissionService, AstronautService]
 })
 export class MissionModule { }
